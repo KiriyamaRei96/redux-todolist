@@ -6,7 +6,7 @@ import style from "./todo.module.css";
 import { remainingSelector } from "../../Redux/Selector";
 import { Col, Row, Input, Button, Select, Tag } from "antd";
 import Job from "../todo";
-import { addtodo } from "./todoReducer";
+import { addtodo, addtodoThunk } from "./todoReducer";
 function TodoList() {
   const [input, setInput] = useState("");
   const [selected, setSelect] = useState("Medium");
@@ -16,8 +16,16 @@ function TodoList() {
 
   const addHandler = () => {
     if (input !== "") {
+      // dispatch(
+      //   addtodo({
+      //     id: uuidv4(),
+      //     job: input,
+      //     Priority: selected,
+      //     completed: false,
+      //   })
+      // );
       dispatch(
-        addtodo({
+        addtodoThunk({
           id: uuidv4(),
           job: input,
           Priority: selected,
