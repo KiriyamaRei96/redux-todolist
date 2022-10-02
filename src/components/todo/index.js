@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { completedTodo, removeTodo } from "../todolist/todoReducer";
+import { completedTodo, deleteTodo, removeTodo } from "../todolist/todoReducer";
 import { Row, Button, Checkbox, Tag } from "antd";
 import style from "../todolist/todo.module.css";
 
@@ -12,7 +12,7 @@ function Job({ job, priority, className, id, complete }) {
     dispatch(completedTodo(id));
   };
   const removeHandler = () => {
-    dispatch(removeTodo(id));
+    dispatch(deleteTodo(id));
   };
   const colorMap = {
     Hight: "red",

@@ -7,6 +7,7 @@ export const setupServer = () => {
     },
     routes() {
       this.get("/api/todoList", (schema) => {
+        // schema.todos.all = ;
         return schema.todos.all();
       });
       this.post("/api/todoList", (schema, request) => {
@@ -23,8 +24,8 @@ export const setupServer = () => {
       });
       this.del("/api/todoList/:id", (schema, request) => {
         let id = request.params.id;
-
         schema.todos.find(id).destroy();
+        return { id };
       });
     },
   });
