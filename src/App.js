@@ -6,8 +6,17 @@ import "./App.css";
 
 import "antd/dist/antd.min.css";
 import { setupServer } from "./fake Api/server";
+import { useDispatch } from "react-redux";
 setupServer();
 function App() {
+const dispatch = useDispatch()
+useEffect(()=>{
+  dispatch({type:"USER_FETCH_REQUESTED",action:'test'})
+
+},[])
+
+
+
   // useEffect(() => {
   //   fetch("/api/todoList")
   //     .then((res) => res.json())

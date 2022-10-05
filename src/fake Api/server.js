@@ -7,6 +7,13 @@ export const setupServer = () => {
     },
     routes() {
       this.get("/api/todoList", (schema) => {
+        schema.todos.create({
+          id: 'c61ddd82-cd1d-44e5-bd37-0e82f9635a73',
+          job: 'text',
+          Priority: 'Medium',
+          completed: false
+        })
+  
         return schema.todos.all();
       });
       this.post("/api/todoList", (schema, request) => {

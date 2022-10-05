@@ -27,6 +27,20 @@ const todoReducer = createSlice({
       state = state.filter((todo) => todo.id !== actions.payload);
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase("USER_FETCH_SUCCEEDED", (state, actions) => {
+        return (state = actions.todo.todos);
+      })
+      .addCase("USER_FETCH_FAILED", (state, action) => {
+        return console.log(action);
+      })
+      .addCase("ADD_TODO_SUCCEEDED", (state, actions) => {
+      console.log(actions);
+         state.push(actions.todo);
+         return state
+      });
+  },
 });
 
 export const { addtodo, completedTodo, removeTodo } = todoReducer.actions;

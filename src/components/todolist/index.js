@@ -16,22 +16,23 @@ function TodoList() {
 
   const addHandler = () => {
     if (input !== "") {
+      dispatch({
+        type: "ADD_TODO_REQUESTED",
+        payload: {
+          id: uuidv4(),
+          job: input,
+          Priority: selected,
+          completed: false,
+        },
+      });
       // dispatch(
-      //   addtodo({
+      //   addtodoThunk({
       //     id: uuidv4(),
       //     job: input,
       //     Priority: selected,
       //     completed: false,
       //   })
       // );
-      dispatch(
-        addtodoThunk({
-          id: uuidv4(),
-          job: input,
-          Priority: selected,
-          completed: false,
-        })
-      );
       setInput("");
       setSelect("Medium");
     }
